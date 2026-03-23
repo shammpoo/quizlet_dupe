@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Set - FlashStudy</title>
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="/frontend/dashboard.html" class="logo">Flash<span>Study</span></a>
+            <nav>
+                <a href="/frontend/dashboard.html" class="nav-link">My Sets</a>
+                <a href="/frontend/create.html" class="nav-link">Create</a>
+                <span id="nav-user" class="nav-user"></span>
+                <button id="logout-btn" class="btn btn-outline btn-sm">Log Out</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 32px; padding-bottom: 60px;">
+        <h1 id="page-title" style="margin-bottom: 32px;">Create New Set</h1>
+
+        <div class="card create-section">
+            <div class="form-group">
+                <label for="set-title">Set Title</label>
+                <input id="set-title" type="text" class="form-control" placeholder="e.g. Biology Chapter 5" required>
+            </div>
+            <div class="form-group">
+                <label for="set-desc">Description (optional)</label>
+                <input id="set-desc" type="text" class="form-control" placeholder="Brief description of this set">
+            </div>
+        </div>
+
+        <div class="card create-section">
+            <h2>Generate with AI</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Paste your study material or upload a file and let AI create flashcards for you.</p>
+
+            <div class="form-group">
+                <label for="text-input">Paste study material</label>
+                <textarea id="text-input" class="form-control" placeholder="Paste your notes, textbook excerpt, or any study material here..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="num-cards">Number of flashcards to generate</label>
+                <input id="num-cards" type="number" class="form-control" value="10" min="1" max="30" style="max-width:120px">
+            </div>
+
+            <button id="generate-text-btn" class="btn btn-primary">Generate from Text</button>
+
+            <div class="or-divider">OR</div>
+
+            <div class="file-drop" id="file-drop">
+                <p style="font-size:1.1rem; font-weight:600; color:var(--text)">Drop a file here or click to browse</p>
+                <p>Supports PDF, DOCX, and TXT files (max 10MB)</p>
+                <input type="file" id="file-input" accept=".pdf,.docx,.txt" style="display:none">
+            </div>
+            <p id="file-name" style="color: var(--text-muted); margin-top: 8px; font-size: 0.9rem;"></p>
+
+            <button id="generate-file-btn" class="btn btn-primary" style="margin-top:16px; display:none;">Generate from File</button>
+        </div>
+
+        <div class="card create-section cards-preview" id="cards-preview" style="display:none">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
+                <h2 id="preview-heading">Preview Cards</h2>
+                <button id="add-card-btn" class="btn btn-outline btn-sm">+ Add Card</button>
+            </div>
+            <div id="cards-list"></div>
+            <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+                <button id="save-btn" class="btn btn-primary">Save Set</button>
+                <a href="/frontend/dashboard.html" class="btn btn-outline">Cancel</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="/frontend/js/api.js"></script>
+    <script src="/frontend/js/create.js"></script>
+</body>
+</html>

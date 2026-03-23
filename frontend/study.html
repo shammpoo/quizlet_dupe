@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study - FlashStudy</title>
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="/frontend/dashboard.html" class="logo">Flash<span>Study</span></a>
+            <nav>
+                <a href="/frontend/dashboard.html" class="nav-link">My Sets</a>
+                <a href="/frontend/create.html" class="nav-link">Create</a>
+                <span id="nav-user" class="nav-user"></span>
+                <button id="logout-btn" class="btn btn-outline btn-sm">Log Out</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="study-header">
+            <div>
+                <h1 id="set-title">Loading...</h1>
+                <p id="set-desc" style="color: var(--text-muted); margin-top: 4px;"></p>
+            </div>
+            <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+                <a id="edit-link" href="#" class="btn btn-outline btn-sm">Edit Set</a>
+                <button id="shuffle-btn" class="btn btn-outline btn-sm">Shuffle</button>
+            </div>
+        </div>
+
+        <div class="study-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="learning">Still Learning</button>
+            <button class="filter-btn" data-filter="known">Known</button>
+        </div>
+
+        <div class="flashcard-container">
+            <div class="flashcard" id="flashcard">
+                <div class="flashcard-face flashcard-front">
+                    <span class="flashcard-label">Front</span>
+                    <div id="card-front">Click to flip</div>
+                </div>
+                <div class="flashcard-face flashcard-back">
+                    <span class="flashcard-label">Back</span>
+                    <div id="card-back"></div>
+                </div>
+            </div>
+        </div>
+
+        <p class="study-progress" id="progress" style="text-align:center; margin-bottom:20px;"></p>
+
+        <div class="study-controls">
+            <button id="prev-btn" class="btn btn-outline">Previous</button>
+            <button id="mark-learning" class="btn btn-outline" style="border-color: var(--danger); color: var(--danger);">Still Learning</button>
+            <button id="mark-known" class="btn btn-outline" style="border-color: var(--success); color: var(--success);">Known</button>
+            <button id="next-btn" class="btn btn-outline">Next</button>
+        </div>
+
+        <div id="complete-msg" style="display:none; text-align:center; padding:40px 0;">
+            <h2 style="margin-bottom:12px;">No cards match this filter</h2>
+            <p style="color: var(--text-muted);">Try a different filter or shuffle the deck.</p>
+        </div>
+    </main>
+
+    <script src="/frontend/js/api.js"></script>
+    <script src="/frontend/js/study.js"></script>
+</body>
+</html>

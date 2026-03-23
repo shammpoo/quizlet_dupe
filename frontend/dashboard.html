@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FlashStudy</title>
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="/frontend/dashboard.html" class="logo">Flash<span>Study</span></a>
+            <nav>
+                <a href="/frontend/dashboard.html" class="nav-link">My Sets</a>
+                <a href="/frontend/create.html" class="nav-link">Create</a>
+                <span id="nav-user" class="nav-user"></span>
+                <button id="logout-btn" class="btn btn-outline btn-sm">Log Out</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>My Flashcard Sets</h1>
+            <a href="/frontend/create.html" class="btn btn-primary">+ New Set</a>
+        </div>
+
+        <div id="sets-container">
+            <div class="empty-state" id="empty-state" style="display:none">
+                <h2>No flashcard sets yet</h2>
+                <p>Create your first set by uploading study materials or pasting text.</p>
+                <a href="/frontend/create.html" class="btn btn-primary" style="margin-top:20px">Create Your First Set</a>
+            </div>
+            <div class="sets-grid" id="sets-grid"></div>
+        </div>
+    </main>
+
+    <script src="/frontend/js/api.js"></script>
+    <script src="/frontend/js/dashboard.js"></script>
+</body>
+</html>
